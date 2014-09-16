@@ -162,6 +162,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NServiceBus.Ninject\NServiceBus.Ninject.csproj">
+      <Project>{c35ae1c7-c785-4629-a73d-977e0325d8b0}</Project>
+      <Name>NServiceBus.Ninject</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
