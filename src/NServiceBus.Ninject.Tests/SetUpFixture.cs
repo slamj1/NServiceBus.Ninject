@@ -12,7 +12,7 @@ public class SetUpFixture
     [SetUp]
     public void Setup()
     {
-        TestContainerBuilder.ConstructBuilder = () => ConstructNinjectObjectBuilder();
+        TestContainerBuilder.ConstructBuilder = ConstructNinjectObjectBuilder;
     }
 
     static IContainer ConstructNinjectObjectBuilder()
