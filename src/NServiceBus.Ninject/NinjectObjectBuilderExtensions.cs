@@ -3,7 +3,10 @@
     using global::Ninject.Extensions.NamedScope;
     using global::Ninject.Syntax;
 
-    static class NinjectObjectBuilderExtensions
+    /// <summary>
+    /// Contains extension methods to configure UnitOfWork scoped bindings.
+    /// </summary>
+    public static class NinjectObjectBuilderExtensions
     {
         const string ScopeName = "NinjectObjectBuilder";
 
