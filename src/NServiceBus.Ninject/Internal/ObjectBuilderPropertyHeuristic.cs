@@ -52,8 +52,7 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
                 return false;
             }
 
-            return registeredTypes.Any(x => propertyInfo.DeclaringType.IsAssignableFrom(x))
-                   && RegisteredTypes.Any(x => propertyInfo.PropertyType.IsAssignableFrom(x)) 
+            return registeredTypes.Any(x => propertyInfo.PropertyType.IsAssignableFrom(x))
                    && propertyInfo.CanWrite;
         }
 

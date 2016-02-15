@@ -36,7 +36,7 @@
                 {
                     { DependencyLifecycle.SingleInstance, StandardScopeCallbacks.Singleton }, 
                     { DependencyLifecycle.InstancePerCall, StandardScopeCallbacks.Transient }, 
-                    { DependencyLifecycle.InstancePerUnitOfWork, StandardScopeCallbacks.Transient }, 
+                    { DependencyLifecycle.InstancePerUnitOfWork, StandardScopeCallbacks.Singleton }, 
                 };
 
         /// <summary>

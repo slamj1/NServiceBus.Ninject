@@ -28,37 +28,37 @@ namespace NServiceBus.ObjectBuilder.Ninject.Internal
 
         public IContainer BuildChildContainer()
         {
-            throw new NotImplementedException();
+            throw new InvalidOperationException("Can't perform configurations on child containers");
         }
 
         public void Configure(Type component, DependencyLifecycle dependencyLifecycle)
         {
-            throw new NotImplementedException();
+            throw new InvalidOperationException("Can't perform configurations on child containers");
         }
 
         public void Configure<T>(Func<T> component, DependencyLifecycle dependencyLifecycle)
         {
-            throw new NotImplementedException();
+            throw new InvalidOperationException("Can't perform configurations on child containers");
         }
 
         public void ConfigureProperty(Type component, string property, object value)
         {
-            throw new NotImplementedException();
+            throw new InvalidOperationException("Can't perform configurations on child containers");
         }
 
         public void RegisterSingleton(Type lookupType, object instance)
         {
-            throw new NotImplementedException();
+            throw new InvalidOperationException("Can't perform configurations on child containers");
         }
 
         public bool HasComponent(Type componentType)
         {
-            throw new NotImplementedException();
+            throw new InvalidOperationException();
         }
 
         public void Release(object instance)
         {
-            throw new NotImplementedException();
+            throw new InvalidOperationException();
         }
     }
 }
