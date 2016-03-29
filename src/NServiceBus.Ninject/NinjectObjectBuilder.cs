@@ -90,23 +90,6 @@
             propertyHeuristic.RegisteredTypes.Add(componentType);
         }
 
-        public void ConfigureProperty(Type component, string property, object value)
-        {
-            var bindings = kernel.GetBindings(component);
-
-            if (!bindings.Any())
-            {
-                throw new ArgumentException("Component not registered", "component");
-            }
-
-            foreach (var binding in bindings)
-            {
-                // if there is already a propertyvalue parameter for this binding then remove it
-                binding.Parameters.Remove(new PropertyValue(property, c => null));
-                binding.Parameters.Add(new PropertyValue(property, value));
-            }
-        }
-
         public void RegisterSingleton(Type lookupType, object instance)
         {
             if (propertyHeuristic.RegisteredTypes.Contains(lookupType))
