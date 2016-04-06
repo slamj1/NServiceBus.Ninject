@@ -1,1 +1,5 @@
-assemblyVersioningScheme: Major
+assembly-versioning-scheme: Major
+next-version: 6.0
+branches:
+ develop:
+   tag: alpha
