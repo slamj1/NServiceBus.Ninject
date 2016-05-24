@@ -10,8 +10,8 @@
     using global::Ninject.Parameters;
     using global::Ninject.Planning.Bindings;
     using global::Ninject.Selection;
-    using NServiceBus.ObjectBuilder.Common;
-    using NServiceBus.ObjectBuilder.Ninject.Internal;
+    using Common;
+    using Internal;
 
     class NinjectObjectBuilder : IContainer
     {

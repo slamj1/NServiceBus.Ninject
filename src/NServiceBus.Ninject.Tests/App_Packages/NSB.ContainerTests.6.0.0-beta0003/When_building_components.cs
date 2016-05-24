@@ -1,7 +1,7 @@
 namespace NServiceBus.ContainerTests
 {
     using NServiceBus;
-    using NServiceBus.ObjectBuilder.Common;
+    using ObjectBuilder.Common;
     using NUnit.Framework;
 
     [TestFixture]
@@ -136,7 +136,7 @@ namespace NServiceBus.ContainerTests
 
         public interface ISingletonComponentWithPropertyDependency
         {
-
+             
         }
 
         public class SingletonComponentWithPropertyDependency : ISingletonComponentWithPropertyDependency
@@ -185,7 +185,7 @@ namespace NServiceBus.ContainerTests
             ConstructorDependency = constructorDependency;
         }
 
-        public ConstructorDependency ConstructorDependency { get; private set; }
+        public ConstructorDependency ConstructorDependency { get; }
 
         public SetterDependency SetterDependency { get; set; }
     }

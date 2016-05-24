@@ -9,8 +9,7 @@ using NUnit.Framework;
 [SetUpFixture]
 public class SetUpFixture
 {
-    [SetUp]
-    public void Setup()
+    public SetUpFixture()
     {
         TestContainerBuilder.ConstructBuilder = ConstructNinjectObjectBuilder;
     }
