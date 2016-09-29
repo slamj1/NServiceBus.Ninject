@@ -28,22 +28,25 @@
         /// </summary>
         IObjectBuilderPropertyHeuristic propertyHeuristic;
 
+        bool owned;
+
         /// <summary>
         /// Maps the supported <see cref="NServiceBus.DependencyLifecycle"/> to the <see cref="StandardScopeCallbacks"/> of ninject.
         /// </summary>
         IDictionary<DependencyLifecycle, Func<IContext, object>> dependencyLifecycleToScopeMapping =
             new Dictionary<DependencyLifecycle, Func<IContext, object>>
                 {
-                    { DependencyLifecycle.SingleInstance, StandardScopeCallbacks.Singleton }, 
-                    { DependencyLifecycle.InstancePerCall, StandardScopeCallbacks.Transient }, 
-                    { DependencyLifecycle.InstancePerUnitOfWork, StandardScopeCallbacks.Transient }, 
+                    { DependencyLifecycle.SingleInstance, StandardScopeCallbacks.Singleton },
+                    { DependencyLifecycle.InstancePerCall, StandardScopeCallbacks.Transient },
+                    { DependencyLifecycle.InstancePerUnitOfWork, StandardScopeCallbacks.Transient },
                 };
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NinjectObjectBuilder"/> class.
         /// </summary>
         public NinjectObjectBuilder()
-            : this(new StandardKernel())
+            : this(new StandardKernel(), true)
         {
         }
 
@@ -51,15 +54,21 @@
         /// Initializes a new instance of the <see cref="NinjectObjectBuilder"/> class.
         /// </summary>
         /// <remarks>
-        /// Uses the default object builder property <see cref="propertyHeuristic"/> 
+        /// Uses the default object builder property <see cref="propertyHeuristic"/>
         /// <see cref="ObjectBuilderPropertyHeuristic"/>.
         /// </remarks>
         /// <param name="kernel">
         /// The kernel.
         /// </param>
         public NinjectObjectBuilder(IKernel kernel)
+            : this(kernel, false)
+        {
+        }
+
+        internal NinjectObjectBuilder(IKernel kernel, bool owned)
         {
             this.kernel = kernel;
+            this.owned = owned;
 
             RegisterNecessaryBindings();
 
@@ -212,7 +221,7 @@
             propertyHeuristic
                 .RegisteredTypes
                 .Add(lookupType);
-			
+
             kernel
                 .Bind(lookupType)
                 .ToConstant(instance);
@@ -268,12 +277,19 @@
 
         void DisposeManaged()
         {
-            if (kernel != null)
+            if (!owned)
             {
-                if (!kernel.IsDisposed)
-                {
-                    kernel.Dispose();
-                }
+                return;
+            }
+
+            if (kernel == null)
+            {
+                return;
+            }
+
+            if (!kernel.IsDisposed)
+            {
+                kernel.Dispose();
             }
         }
 

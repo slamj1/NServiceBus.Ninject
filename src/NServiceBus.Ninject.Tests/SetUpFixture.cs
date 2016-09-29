@@ -21,6 +21,6 @@ public class SetUpFixture
         var contextPreservationModule = new ContextPreservationModule();
         var namedScopeModule = new NamedScopeModule();
         var standardKernel = new StandardKernel(ninjectSettings,contextPreservationModule, namedScopeModule);
-        return new NinjectObjectBuilder(standardKernel);
+        return new NinjectObjectBuilder(standardKernel, true);
     }
 }

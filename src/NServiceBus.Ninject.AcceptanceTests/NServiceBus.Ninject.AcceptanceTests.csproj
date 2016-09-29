@@ -7,7 +7,7 @@
     <ProjectGuid>{F4A36825-25A7-4855-9C1A-2FFBB68E187A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NServiceBus.Ninject.AcceptanceTests</RootNamespace>
+    <RootNamespace>NServiceBus.AcceptanceTests</RootNamespace>
     <AssemblyName>NServiceBus.Ninject.AcceptanceTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="NServiceBus.AcceptanceTesting">
       <HintPath>..\packages\NServiceBus.AcceptanceTesting.5.0.0\lib\net45\NServiceBus.AcceptanceTesting.dll</HintPath>
     </Reference>
@@ -166,6 +170,7 @@
     <Compile Include="App_Packages\NSB.AcceptanceTests.5.0.0\Tx\When_sending_within_an_ambient_transaction.cs" />
     <Compile Include="App_Packages\NSB.AcceptanceTests.5.0.0\Versioning\When_multiple_versions_of_a_message_is_published.cs" />
     <Compile Include="App_Packages\NSB.AcceptanceTests.5.0.0\Volatile\When_sending_to_non_durable_endpoint.cs" />
+    <Compile Include="When_using_externally_owned_container.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
