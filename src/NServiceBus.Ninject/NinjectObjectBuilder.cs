@@ -16,13 +16,19 @@
     class NinjectObjectBuilder : IContainer
     {
         public NinjectObjectBuilder()
-            : this(new StandardKernel())
+            : this(new StandardKernel(), true)
         {
         }
 
         public NinjectObjectBuilder(IKernel kernel)
+            : this(kernel, false)
+        {
+        }
+
+        public NinjectObjectBuilder(IKernel kernel, bool owned)
         {
             this.kernel = kernel;
+            this.owned = owned;
 
             RegisterNecessaryBindings();
 
@@ -148,12 +154,19 @@
 
         void DisposeManaged()
         {
-            if (kernel != null)
+            if (!owned)
             {
-                if (!kernel.IsDisposed)
-                {
-                    kernel.Dispose();
-                }
+                return;
+            }
+
+            if (kernel == null)
+            {
+                return;
+            }
+
+            if (!kernel.IsDisposed)
+            {
+                kernel.Dispose();
             }
         }
 
@@ -286,5 +299,6 @@
 
         IKernel kernel;
         IObjectBuilderPropertyHeuristic propertyHeuristic;
+        bool owned;
     }
 }

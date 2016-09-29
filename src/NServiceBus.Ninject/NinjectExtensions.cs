@@ -15,7 +15,7 @@
         /// <param name="kernel">The existing container instance.</param>
         public static void ExistingKernel(this ContainerCustomizations customizations, IKernel kernel)
         {
-            customizations.Settings.Set("ExistingKernel", kernel);
+            customizations.Settings.Set<NinjectBuilder.KernelHolder>(new NinjectBuilder.KernelHolder(kernel));
         }
     }
 }
