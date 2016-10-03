@@ -17,15 +17,25 @@
         /// <returns>The new container wrapper.</returns>
         public override ObjectBuilder.Common.IContainer CreateContainer(ReadOnlySettings settings)
         {
-            IKernel existingKernel;
+            KernelHolder kernelHolder;
 
-            if (settings.TryGet("ExistingKernel", out existingKernel))
+            if (settings.TryGet(out kernelHolder))
             {
-                return new NinjectObjectBuilder(existingKernel);
+                return new NinjectObjectBuilder(kernelHolder.ExistingKernel);
 
             }
 
             return new NinjectObjectBuilder();
+        }
+
+        internal class KernelHolder
+        {
+            public KernelHolder(IKernel kernel)
+            {
+                ExistingKernel = kernel;
+            }
+
+            public IKernel ExistingKernel { get; private set; }
         }
     }
 }
