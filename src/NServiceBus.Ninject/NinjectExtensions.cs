@@ -1,7 +1,7 @@
 ﻿namespace NServiceBus
 {
     using Container;
-    using Ninject;
+    using global::Ninject;
 
     /// <summary>
     /// Ninject extension to pass an existing Ninject container instance.

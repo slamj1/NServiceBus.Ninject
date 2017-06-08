@@ -1,7 +1,7 @@
 ﻿namespace NServiceBus
 {
     using Container;
-    using Ninject;
+    using global::Ninject;
     using ObjectBuilder.Common;
     using ObjectBuilder.Ninject;
     using Settings;

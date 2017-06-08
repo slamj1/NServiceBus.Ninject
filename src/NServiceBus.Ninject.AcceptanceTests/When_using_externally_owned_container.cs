@@ -32,6 +32,7 @@
             {
                 EndpointSetup<DefaultServer>((config, desc) =>
                 {
+                    config.SendFailedMessagesTo("error");
                     var kernel = new StandardKernel();
 
                     config.UseContainer<NinjectBuilder>(c => c.ExistingKernel(kernel));
