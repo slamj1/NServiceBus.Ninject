@@ -22,6 +22,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\binaries\containers\Ninject\NServiceBus.ObjectBuilder.Ninject.???" target="lib\net452" />
+    <file src="..\..\binaries\net452\NServiceBus.ObjectBuilder.Ninject.???" target="lib\net452" />
   </files>
 </package>
