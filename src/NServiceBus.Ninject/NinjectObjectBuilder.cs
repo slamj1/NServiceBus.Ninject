@@ -59,7 +59,12 @@
 
         public IEnumerable<object> BuildAll(Type typeToBuild)
         {
-            return kernel.GetAll(typeToBuild);
+            if (HasComponent(typeToBuild))
+            {
+                return kernel.GetAll(typeToBuild);
+            }
+
+            return Enumerable.Empty<object>();
         }
 
         public void Configure(Type component, DependencyLifecycle dependencyLifecycle)
