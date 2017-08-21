@@ -7,7 +7,6 @@
     using System.Threading.Tasks;
     using AcceptanceTesting.Customization;
     using AcceptanceTesting.Support;
-    using Config.ConfigurationSource;
     using Features;
     using Hosting.Helpers;
     using ObjectBuilder;
@@ -25,7 +24,7 @@
         }
 
 #pragma warning disable 618
-        public Task<EndpointConfiguration> GetConfiguration(RunDescriptor runDescriptor, EndpointCustomizationConfiguration endpointConfiguration, IConfigurationSource configSource, Action<EndpointConfiguration> configurationBuilderCustomization)
+        public Task<EndpointConfiguration> GetConfiguration(RunDescriptor runDescriptor, EndpointCustomizationConfiguration endpointConfiguration, Action<EndpointConfiguration> configurationBuilderCustomization)
 #pragma warning restore 618
         {
             var types = GetTypesScopedByTestClass(endpointConfiguration);
@@ -35,12 +34,12 @@
             var builder = new EndpointConfiguration(endpointConfiguration.EndpointName);
 
             builder.TypesToIncludeInScan(typesToInclude);
-            builder.CustomConfigurationSource(configSource);
             builder.EnableInstallers();
 
             builder.DisableFeature<TimeoutManager>();
             builder.UsePersistence<InMemoryPersistence>();
             builder.UseContainer<NinjectBuilder>();
+            builder.UseTransport<LearningTransport>();
 
             builder.Recoverability().Delayed(delayedRetries => delayedRetries.NumberOfRetries(0));
             builder.Recoverability().Immediate(immediateRetries => immediateRetries.NumberOfRetries(0));
