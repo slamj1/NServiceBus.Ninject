@@ -8,6 +8,8 @@
     using AcceptanceTesting.Customization;
     using AcceptanceTesting.Support;
     using Features;
+    using global::Ninject;
+    using global::Ninject.Modules;
     using Hosting.Helpers;
     using ObjectBuilder;
 
@@ -38,7 +40,13 @@
 
             builder.DisableFeature<TimeoutManager>();
             builder.UsePersistence<InMemoryPersistence>();
-            builder.UseContainer<NinjectBuilder>();
+            var settings = new NinjectSettings
+            {
+                // avoid https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/mitigation-deserialization-of-objects-across-app-domains
+                LoadExtensions = false
+            };
+            var kernel = new StandardKernel(settings);
+            builder.UseContainer<NinjectBuilder>(c => c.ExistingKernel(kernel));
             builder.UseTransport<LearningTransport>();
 
             builder.Recoverability().Delayed(delayedRetries => delayedRetries.NumberOfRetries(0));

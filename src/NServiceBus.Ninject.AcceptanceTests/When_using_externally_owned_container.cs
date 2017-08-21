@@ -33,7 +33,12 @@
                 EndpointSetup<DefaultServer>((config, desc) =>
                 {
                     config.SendFailedMessagesTo("error");
-                    var kernel = new StandardKernel();
+                    var setttings = new NinjectSettings()
+                    {
+                        // avoid https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/mitigation-deserialization-of-objects-across-app-domains
+                        LoadExtensions = false
+                    };
+                    var kernel = new StandardKernel(setttings);
 
                     config.UseContainer<NinjectBuilder>(c => c.ExistingKernel(kernel));
 
