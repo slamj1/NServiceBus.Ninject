@@ -15,19 +15,19 @@
     <NoWarn>CS0419</NoWarn>
     <UpdateAssemblyInfo>true</UpdateAssemblyInfo>
     <RootNamespace>NServiceBus.ObjectBuilder.Ninject</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>The Ninject Container for the nservicebus</Description>
+    <PackageId>NServiceBus.Ninject</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Ninject" Version="3.2.2.0" />
     <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="3.2.0" />
     <PackageReference Include="Ninject.Extensions.NamedScope" Version="3.2.0" />
-    <PackageReference Include="Janitor.Fody" Version="1.4.1" />
+    <PackageReference Include="Janitor.Fody" Version="1.4.1" PrivateAssets="all" />
     <PackageReference Include="NServiceBus" Version="7.0.0-alpharelease0051" />
-    <PackageReference Include="Obsolete.Fody" Version="4.2.2" />
-    <PackageReference Include="Particular.CodeRules" Version="0.2.0" />
-    <PackageReference Include="NuGetPackager" Version="0.6.3" />
-    <PackageReference Include="Fody" Version="2.1.0" />
-    <PackageReference Include="GitVersionTask" Version="4.0.0-beta0012" />
+    <PackageReference Include="Obsolete.Fody" Version="4.2.2" PrivateAssets="all" />
+    <PackageReference Include="Particular.CodeRules" Version="0.2.0" PrivateAssets="all" />
+    <PackageReference Include="Fody" Version="2.1.0" PrivateAssets="all" />
     <None Include="..\..\GitVersion.yml" Link="GitVersion.yml" />
-    <None Include="..\..\packaging\nuget\NServiceBus.Ninject.nuspec" Link="NServiceBus.Ninject.nuspec" />
   </ItemGroup>
 </Project>
