@@ -9,7 +9,6 @@
     using AcceptanceTesting.Support;
     using Features;
     using global::Ninject;
-    using global::Ninject.Modules;
     using Hosting.Helpers;
     using ObjectBuilder;
 
