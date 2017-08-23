@@ -7,8 +7,8 @@
     using System.Threading.Tasks;
     using AcceptanceTesting.Customization;
     using AcceptanceTesting.Support;
-    using Config.ConfigurationSource;
     using Features;
+    using global::Ninject;
     using Hosting.Helpers;
     using ObjectBuilder;
 
@@ -25,7 +25,7 @@
         }
 
 #pragma warning disable 618
-        public Task<EndpointConfiguration> GetConfiguration(RunDescriptor runDescriptor, EndpointCustomizationConfiguration endpointConfiguration, IConfigurationSource configSource, Action<EndpointConfiguration> configurationBuilderCustomization)
+        public Task<EndpointConfiguration> GetConfiguration(RunDescriptor runDescriptor, EndpointCustomizationConfiguration endpointConfiguration, Action<EndpointConfiguration> configurationBuilderCustomization)
 #pragma warning restore 618
         {
             var types = GetTypesScopedByTestClass(endpointConfiguration);
@@ -35,12 +35,18 @@
             var builder = new EndpointConfiguration(endpointConfiguration.EndpointName);
 
             builder.TypesToIncludeInScan(typesToInclude);
-            builder.CustomConfigurationSource(configSource);
             builder.EnableInstallers();
 
             builder.DisableFeature<TimeoutManager>();
             builder.UsePersistence<InMemoryPersistence>();
-            builder.UseContainer<NinjectBuilder>();
+            var settings = new NinjectSettings
+            {
+                // avoid https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/mitigation-deserialization-of-objects-across-app-domains
+                LoadExtensions = false
+            };
+            var kernel = new StandardKernel(settings);
+            builder.UseContainer<NinjectBuilder>(c => c.ExistingKernel(kernel));
+            builder.UseTransport<LearningTransport>();
 
             builder.Recoverability().Delayed(delayedRetries => delayedRetries.NumberOfRetries(0));
             builder.Recoverability().Immediate(immediateRetries => immediateRetries.NumberOfRetries(0));

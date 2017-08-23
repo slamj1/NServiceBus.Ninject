@@ -1,8 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
-using ApiApprover;
-using NServiceBus;
+using ApprovalTests;
 using NUnit.Framework;
+using PublicApiGenerator;
+
 [TestFixture]
 public class APIApprovals
 {
@@ -10,7 +14,19 @@ public class APIApprovals
     [MethodImpl(MethodImplOptions.NoInlining)]
     public void Approve()
     {
-        Directory.SetCurrentDirectory(TestContext.CurrentContext.TestDirectory);
-        PublicApiApprover.ApprovePublicApi(typeof(NinjectBuilder).Assembly);
+        var combine = Path.Combine(TestContext.CurrentContext.TestDirectory, "NServiceBus.ObjectBuilder.Ninject.dll");
+        var assembly = Assembly.LoadFile(combine);
+        var publicApi = Filter(ApiGenerator.GeneratePublicApi(assembly));
+        Approvals.Verify(publicApi);
+    }
+
+    string Filter(string text)
+    {
+        return string.Join(Environment.NewLine, text.Split(new[]
+            {
+                Environment.NewLine
+            }, StringSplitOptions.RemoveEmptyEntries)
+            .Where(l => !string.IsNullOrWhiteSpace(l))
+        );
     }
 }
