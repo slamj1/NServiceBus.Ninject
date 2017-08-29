@@ -7,27 +7,24 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>$(SolutionDir)NServiceBus.snk</AssemblyOriginatorKeyFile>
-    <DebugType>full</DebugType>
-    <DebugSymbols>True</DebugSymbols>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <OutputPath>..\..\binaries\</OutputPath>
     <NoWarn>CS0419</NoWarn>
     <UpdateAssemblyInfo>true</UpdateAssemblyInfo>
     <RootNamespace>NServiceBus.ObjectBuilder.Ninject</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>The Ninject Container for the nservicebus</Description>
     <PackageId>NServiceBus.Ninject</PackageId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ninject" Version="3.2.2.0" />
+    <PackageReference Include="Ninject" Version="3.2.2" />
     <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="3.2.0" />
     <PackageReference Include="Ninject.Extensions.NamedScope" Version="3.2.0" />
-    <PackageReference Include="Janitor.Fody" Version="1.4.1" PrivateAssets="all" />
-    <PackageReference Include="NServiceBus" Version="7.0.0-alpharelease0051" />
-    <PackageReference Include="Obsolete.Fody" Version="4.2.2" PrivateAssets="all" />
-    <PackageReference Include="Particular.CodeRules" Version="0.2.0" PrivateAssets="all" />
-    <PackageReference Include="Fody" Version="2.1.0" PrivateAssets="all" />
+    <PackageReference Include="Janitor.Fody" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="NServiceBus" Version="[7.0.0-*, 8.0.0)" />
+    <PackageReference Include="Obsolete.Fody" Version="4.*" PrivateAssets="all" />
+    <PackageReference Include="Fody" Version="2.*" PrivateAssets="all" />
     <None Include="..\..\GitVersion.yml" Link="GitVersion.yml" />
   </ItemGroup>
 </Project>
