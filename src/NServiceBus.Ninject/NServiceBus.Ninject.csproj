@@ -13,7 +13,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <Description>The Ninject Container for the nservicebus</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>NServiceBus.Ninject</PackageId>
   </PropertyGroup>
   <ItemGroup>
