@@ -26,6 +26,7 @@ public class APIApprovals
             {
                 Environment.NewLine
             }, StringSplitOptions.RemoveEmptyEntries)
+            .Where(l => !l.StartsWith("[assembly: ReleaseDateAttribute("))
             .Where(l => !string.IsNullOrWhiteSpace(l))
         );
     }

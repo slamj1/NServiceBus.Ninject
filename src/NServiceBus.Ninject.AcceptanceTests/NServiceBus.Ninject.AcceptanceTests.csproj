@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
-    <DebugSymbols>True</DebugSymbols>
-    <NoWarn>PCR0001</NoWarn>
+    <TargetFrameworks>net452</TargetFrameworks>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ninject" Version="3.*" />
-    <PackageReference Include="NServiceBus.AcceptanceTesting" Version="[7.0.0-*,8.0)" />
-    <PackageReference Include="NServiceBus" Version="[7.0.0-*,8.0)" />
-    <PackageReference Include="NUnit" Version="3.*" />
     <ProjectReference Include="..\NServiceBus.Ninject\NServiceBus.Ninject.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NServiceBus" Version="7.0.0-*" />
+    <PackageReference Include="NServiceBus.AcceptanceTesting" Version="7.0.0-*" />
+    <PackageReference Include="Ninject" Version="3.*" />
+    <PackageReference Include="NUnit" Version="3.7.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
   </ItemGroup>
 </Project>

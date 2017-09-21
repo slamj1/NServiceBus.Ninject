@@ -1,27 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(SolutionDir)NServiceBus.snk</AssemblyOriginatorKeyFile>
-    <DebugType>full</DebugType>
-    <DebugSymbols>True</DebugSymbols>
+    <TargetFrameworks>net452</TargetFrameworks>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)NServiceBus.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="NServiceBus.ObjectBuilder.Ninject.approved.cs" />
-    <PackageReference Include="ApprovalTests" Version="3.*" />
-    <PackageReference Include="ApprovalUtilities" Version="3.*" />
+    <ProjectReference Include="..\NServiceBus.Ninject\NServiceBus.Ninject.csproj" />
+    <None Remove="APIApprovals.Approve.approved.txt" />
+    <None Remove="APIApprovals.Approve.received.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NServiceBus.ContainerTests.Sources" Version="7.0.0-*" />
     <PackageReference Include="Ninject" Version="3.*" />
     <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="3.*" />
     <PackageReference Include="Ninject.Extensions.NamedScope" Version="3.*" />
-    <PackageReference Include="Mono.Cecil" Version="0.10.0-*" />
-    <PackageReference Include="NServiceBus" Version="[7.0.0-*,8.0)" />
-    <PackageReference Include="NUnit" Version="3.*" />
-    <PackageReference Include="NServiceBus.ContainerTests.Sources" Version="[7.0.0-*,8.0)" />
-    <PackageReference Include="PublicApiGenerator" Version="6.1.0-*" />
-    <ProjectReference Include="..\NServiceBus.Ninject\NServiceBus.Ninject.csproj" />
+    <PackageReference Include="Mono.Cecil" Version="0.10.0-beta6" />
+    <PackageReference Include="NUnit" Version="3.7.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <PackageReference Include="ApprovalTests" Version="3.0.13" NoWarn="NU1701" />
+    <PackageReference Include="ApprovalUtilities" Version="3.0.13" NoWarn="NU1701" />
+    <PackageReference Include="PublicApiGenerator" Version="6.1.0-beta2" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />

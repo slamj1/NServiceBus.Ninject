@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
+    <TargetFrameworks>net452</TargetFrameworks>
     <AssemblyName>NServiceBus.ObjectBuilder.Ninject</AssemblyName>
-    <NuSpecFileName>NServiceBus.Ninject</NuSpecFileName>
+    <RootNamespace>NServiceBus.ObjectBuilder.Ninject</RootNamespace>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <UpdateAssemblyInfo>true</UpdateAssemblyInfo>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>$(SolutionDir)NServiceBus.snk</AssemblyOriginatorKeyFile>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>CS0419</NoWarn>
-    <UpdateAssemblyInfo>true</UpdateAssemblyInfo>
-    <RootNamespace>NServiceBus.ObjectBuilder.Ninject</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>The Ninject Container for the nservicebus</Description>
     <PackageId>NServiceBus.Ninject</PackageId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ninject" Version="3.2.2" />
-    <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="3.2.0" />
-    <PackageReference Include="Ninject.Extensions.NamedScope" Version="3.2.0" />
-    <PackageReference Include="Janitor.Fody" Version="1.*" PrivateAssets="all" />
-    <PackageReference Include="NServiceBus" Version="[7.0.0-*, 8.0.0)" />
-    <PackageReference Include="Obsolete.Fody" Version="4.*" PrivateAssets="all" />
-    <PackageReference Include="Fody" Version="2.*" PrivateAssets="all" />
+    <PackageReference Include="Ninject" Version="[3.2.2,4.0.0)" />
+    <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="[3.2.0,4.0.0)" />
+    <PackageReference Include="Ninject.Extensions.NamedScope" Version="[3.2.0,4.0.0)" />
+    <PackageReference Include="NServiceBus" Version="[7.0.0-*,8.0.0)" />
+    <PackageReference Include="Particular.CodeRules" Version="*" PrivateAssets="all" />
+    <PackageReference Include="Fody" Version="2.*" PrivateAssets="All" />
+    <PackageReference Include="Janitor.Fody" Version="1.*" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="..\..\GitVersion.yml" Link="GitVersion.yml" />
   </ItemGroup>
 </Project>
