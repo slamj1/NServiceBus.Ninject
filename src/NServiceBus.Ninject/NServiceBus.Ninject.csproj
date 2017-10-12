@@ -16,8 +16,8 @@
     <PackageId>NServiceBus.Ninject</PackageId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ninject" Version="[3.2.2,4.0.0)" />
-    <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="[3.2.0,4.0.0)" />
+    <PackageReference Include="Ninject" Version="3.2.2" />
+    <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="3.2.0" />
     <PackageReference Include="Ninject.Extensions.NamedScope" Version="[3.2.0,4.0.0)" />
     <PackageReference Include="NServiceBus" Version="[7.0.0-*,8.0.0)" />
     <PackageReference Include="Particular.CodeRules" Version="*" PrivateAssets="all" />
