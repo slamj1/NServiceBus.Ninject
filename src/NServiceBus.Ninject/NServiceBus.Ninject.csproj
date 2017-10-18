@@ -5,13 +5,12 @@
     <AssemblyName>NServiceBus.ObjectBuilder.Ninject</AssemblyName>
     <RootNamespace>NServiceBus.ObjectBuilder.Ninject</RootNamespace>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>$(SolutionDir)NServiceBus.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup>
-    <Description>The Ninject Container for the nservicebus</Description>
+    <Description>Adapter for the Ninject IoC Container</Description>
     <PackageId>NServiceBus.Ninject</PackageId>
   </PropertyGroup>
 
@@ -23,6 +22,7 @@
     <PackageReference Include="Fody" Version="2.*" PrivateAssets="All" />
     <PackageReference Include="Janitor.Fody" Version="1.*" PrivateAssets="All" />
     <PackageReference Include="Particular.CodeRules" Version="*" PrivateAssets="All" />
+    <PackageReference Include="Particular.Packaging" Version="0.1.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
