@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 15.0.26430.12
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 15.0.26430.12
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBus.Ninject", "NServiceBus.Ninject\NServiceBus.Ninject.csproj", "{C35AE1C7-C785-4629-A73D-977E0325D8B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NServiceBus.Ninject", "NServiceBus.Ninject\NServiceBus.Ninject.csproj", "{C35AE1C7-C785-4629-A73D-977E0325D8B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBus.Ninject.AcceptanceTests", "NServiceBus.Ninject.AcceptanceTests\NServiceBus.Ninject.AcceptanceTests.csproj", "{F4A36825-25A7-4855-9C1A-2FFBB68E187A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NServiceBus.Ninject.AcceptanceTests", "NServiceBus.Ninject.AcceptanceTests\NServiceBus.Ninject.AcceptanceTests.csproj", "{F4A36825-25A7-4855-9C1A-2FFBB68E187A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBus.Ninject.Tests", "NServiceBus.Ninject.Tests\NServiceBus.Ninject.Tests.csproj", "{CBEEDE0C-A677-4BFD-8535-F798E016B547}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NServiceBus.Ninject.Tests", "NServiceBus.Ninject.Tests\NServiceBus.Ninject.Tests.csproj", "{CBEEDE0C-A677-4BFD-8535-F798E016B547}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D05BAA2D-9E6B-4ABD-B994-D5BB061D567A}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		..\GitVersion.yml = ..\GitVersion.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27CCCE15-64A7-4D52-8FB4-B622D288F6C2}
 	EndGlobalSection
 EndGlobal
