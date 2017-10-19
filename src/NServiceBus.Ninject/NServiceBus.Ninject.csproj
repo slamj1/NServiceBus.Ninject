@@ -17,7 +17,7 @@
     <PackageReference Include="Ninject" Version="3.2.2" />
     <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="3.2.0" />
     <PackageReference Include="Ninject.Extensions.NamedScope" Version="[3.2.0,4.0.0)" />
-    <PackageReference Include="NServiceBus" Version="[7.0.0-*,8.0.0)" />
+    <PackageReference Include="NServiceBus" Version="[7.0.0-beta0009,8.0.0)" />
     <PackageReference Include="Fody" Version="2.*" PrivateAssets="All" />
     <PackageReference Include="Janitor.Fody" Version="1.*" PrivateAssets="All" />
     <PackageReference Include="Particular.CodeRules" Version="*" PrivateAssets="All" />
