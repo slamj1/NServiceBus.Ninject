@@ -22,8 +22,18 @@
 
             if (settings.TryGet(out kernelHolder))
             {
+                settings.AddStartupDiagnosticsSection("NServiceBus.Ninject", new
+                {
+                    UsingExistingKernel = true
+                });
+
                 return new NinjectObjectBuilder(kernelHolder.ExistingKernel);
             }
+
+            settings.AddStartupDiagnosticsSection("NServiceBus.Ninject", new
+            {
+                UsingExistingKernel = false
+            });
 
             return new NinjectObjectBuilder();
         }
