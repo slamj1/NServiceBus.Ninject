@@ -14,11 +14,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ninject" Version="3.2.2" />
-    <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="3.2.0" />
-    <PackageReference Include="Ninject.Extensions.NamedScope" Version="[3.2.0,4.0.0)" />
     <PackageReference Include="NServiceBus" Version="[7.0.0-beta0009,8.0.0)" />
-    <PackageReference Include="Ninject" Version="3.3.2-beta1" />
+    <PackageReference Include="Ninject" Version="3.3.2-rc1" />
     <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="[3.3.0,4.0.0)" />
     <PackageReference Include="Ninject.Extensions.NamedScope" Version="[3.3.0-beta1,4.0.0)" />
     <PackageReference Include="NServiceBus" Version="[7.0.0-*,8.0.0)" />
